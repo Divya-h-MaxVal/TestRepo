@@ -1,0 +1,27 @@
+<aura:component >
+    
+    <aura:attribute name="Principal" type="currency" />
+    <aura:attribute name="time" type="double" />
+    <aura:attribute name="rate" type="double" />
+    <aura:attribute name="SI" type="currency"/>   
+   
+    <div class="slds-align_absolute-center">
+    <div class="slds-size_3-of-8" >
+        <form class="slds-form--stacked" >
+            
+            <lightning:input aura:id="Principal" value="{!v.Principal}" label ="Pricipal" placeholder="enter principal amount"/>
+            <lightning:input aura:id="time" value ="{!v.time}" label="Time" placeholder="enter only in months"/>
+            <lightning:input aura:id="rate" value="{!v.rate}" label = "Interest Rate" formatter="percent" placeholder="enter the rate"/><br/>
+            <lightning:button label="Calculate Simple Interest" onclick="{!c.calculate}"/>
+            <br/>
+            <br/>
+            Simple Interest is:<ui:outputCurrency value="{!v.SI}"/> 
+        </form>
+        
+    </div>
+        </div>
+    
+   
+    
+	
+</aura:component>

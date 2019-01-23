@@ -1,0 +1,26 @@
+<apex:page showHeader="false">
+    
+    <div>
+        <input id="inputMessage" value=""/>
+        <input type="button" onclick="callEvent();" value="Pass value to ltng cmp"/>
+    </div><hr/>
+    <div id="ltng1">
+        
+    </div>
+   <script>
+     var myEvent;
+     $Lightning.use("c:Demo28EvtinVFApp",function() {
+         $Lightning.createComponent("c:Demo28EvtinVFCmp",{},"ltng1",function(cmp){
+             myEvent = $A.get("e.c:Demo28VFToLCEvt");
+             console.log("comp");
+            });
+        });
+    
+    function callEvent(){
+         var inputMessage = document.getElementById("inputMessage").value;
+         myEvent.setParams({"message":inputMessage});
+         myEvent.fire();
+    }
+    </script>
+
+</apex:page>

@@ -1,0 +1,34 @@
+<aura:component >
+	<lightning:layout >
+    <lightning:layoutItem >
+        <lightning:icon iconName="custom:custom61" />     
+    </lightning:layoutItem>
+       </lightning:layout>
+    
+    <lightning:layout >
+        <lightning:layoutItem >
+            
+            <h1 > WE THE ROCKS </h1>
+            <br/>
+            <br/>
+         </lightning:layoutItem>
+        <lightning:layoutItem >
+        
+            <div>
+                <form class="slds-form--stacked">
+        <lightning:input label="name>?"
+                         name="lala"
+                    required="true"/>
+         <lightning:input type="checkbox"
+                          name="lala1"
+                          label="done?"/>
+            
+            
+        </form>
+         </div>
+        
+        </lightning:layoutItem>
+            
+    
+    </lightning:layout>
+</aura:component>

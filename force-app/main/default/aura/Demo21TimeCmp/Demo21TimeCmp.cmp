@@ -1,0 +1,8 @@
+<aura:component  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="dateValue" type="String" access="global"/>
+    <aura:attribute name="format" type="String" access="global"/>
+    <aura:attribute name="class" type="String" access="global"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <ui:outputDateTime aura:id="dateTime" value="{!v.dateValue}" format="{!v.format}"/>
+    {!v.dateValue}
+</aura:component>

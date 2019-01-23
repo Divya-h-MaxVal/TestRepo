@@ -1,0 +1,9 @@
+<aura:component >
+    <aura:attribute name="dataFromSibling" type="String"/>
+    <aura:handler event="c:Demo24AppEvt" action="{!c.handleAppEvent}"/><hr/>
+    
+    <p>---------Other cjild starts here</p>
+    <p>other child data: <ui:outputText value="{!v.dataFromSibling}"/></p>
+    {!v.dataFromSibling}
+    <p>Other child ends here-------------</p>
+</aura:component>

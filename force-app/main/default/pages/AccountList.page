@@ -1,0 +1,20 @@
+<apex:page standardController="Account" recordSetVar="accounts" >
+    
+    <apex:form >
+    <apex:pageBlock id="pgblock">
+    <apex:repeat value="{!accounts}" var="a"> 
+       <li> <apex:outputField value="{!a.Name}"/> </li>
+        <li> <apex:outputField value="{!a.Type}"/> </li>
+        <li> <apex:outputField value="{!a.Industry}"/> </li>
+       
+        <li>
+            <apex:outputLink value="/{! a.id}" > {!a.Name} Detail Page Link</apex:outputLink>
+        </li>
+        
+        
+       
+        </apex:repeat>
+        
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

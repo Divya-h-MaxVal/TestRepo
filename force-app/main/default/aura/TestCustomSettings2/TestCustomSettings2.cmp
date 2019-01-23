@@ -1,0 +1,5 @@
+<aura:component controller="TestCustomSettingsController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	  <a href="{!v.address}" id="link" onclick="{!c.handleClick2}">Google</a>
+    <aura:dependency resource="markup://force:navigateToURL" type="EVENT"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+</aura:component>

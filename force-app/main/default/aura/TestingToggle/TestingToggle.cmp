@@ -1,0 +1,13 @@
+<aura:component >
+    <aura:attribute name="box" type="Boolean" default="false"/>
+    <input type="checkbox" id="switch" onchange="{!c.testfunc}" value="{!v.box}" change="{!c.testfunc}">Static</input>
+                               
+
+    <label for="switch" class="chkbox">Examiner......Art 
+   
+    
+    </label>
+    
+    
+
+    </aura:component>

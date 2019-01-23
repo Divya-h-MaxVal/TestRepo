@@ -1,0 +1,15 @@
+<aura:component >
+	
+    <aura:attribute name="val" type="String" default="My default string"/>
+    
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+     <aura:handler name="render" value="{!this}" action="{!c.onRender}"/>
+    <h3>Render</h3>'
+    <p>{!v.val}</p>
+    <lightning:button label="Render" onclick="{!c.handleClick}"/>
+    <!-- Unrender Component -->
+    <c:Demo14UnRender aura:id="unrenderEx"/>
+     <lightning:button label="Destroy!!!" onclick="{!c.destroyIt}"/>
+    
+    
+</aura:component>

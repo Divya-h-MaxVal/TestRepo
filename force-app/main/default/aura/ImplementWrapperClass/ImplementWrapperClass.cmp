@@ -1,0 +1,42 @@
+<aura:component controller="WrapperClassController">
+    <aura:attribute name="wrapper" type="object"/>
+    <aura:handler name="init" value="{!this}" action="{!c.initialLoad}"/>
+    
+    <div>
+        <h1>
+            <span class="slds-page-header__title slds-truncate" >{!v.wrapper.headerText}</span>
+        </h1>
+        <span class="slds-badge">Total : {!v.wrapper.count}</span>
+    </div>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+            <tr>
+                
+                <th class="slds-text-title_caps" scope="col">
+                    <div class="slds-truncate" >First Name</div>
+                </th>
+                <th class="slds-text-title_caps" scope="col">
+                    <div class="slds-truncate">Last Name</div>
+                </th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.wrapper.con}" var="c">
+                <tr>
+                    <th>
+                        <div class="slds-truncate" scope="col">{!c.FirstName}</div>
+                    </th>
+                
+                    <th>
+                        <div class="slds-truncate" scope="col">{!c.LastName}</div>
+                    </th>
+                </tr>   
+                
+            </aura:iteration>
+            
+        </tbody>
+    </table>
+    
+    
+</aura:component>

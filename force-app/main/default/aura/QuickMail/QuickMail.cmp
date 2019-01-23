@@ -1,0 +1,94 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="QuickMailController">
+    <aura:attribute name="email" type="String"/>
+    <aura:attribute name="subject" type="String"/>
+    <aura:attribute name="body" type="String"/>
+    <aura:attribute name="emailStatus" type="Boolean" default="false"/>
+    
+    <div class="slds-page-header">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-standard-opportunity" title="opportunity">
+                            <lightning:icon iconName="standard:email" alternativeText="EMail" />
+                            <span class="slds-assistive-text">opportunity</span>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span class="slds-page-header__title slds-truncate" title="Rohde Corp - 80,000 Widgets">Quick Email Action</span>
+                                </h1>
+                            </div>
+                        </div>
+                        <p class="slds-page-header__name-meta">for quicker action</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <aura:if isTrue="{!v.emailStatus}">
+        
+        <div class="demo-only" style="height: 24rem;">
+            <section role="alertdialog" tabindex="-1" aria-labelledby="prompt-heading-id" aria-describedby="prompt-message-wrapper" class="slds-modal slds-fade-in-open slds-modal_prompt" aria-modal="true">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header slds-theme_error slds-theme_alert-texture">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+                            
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 class="slds-text-heading_medium" id="prompt-heading-id">Email Sent</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="prompt-message-wrapper">
+                        <p>the email was sent successfully</p>
+                    </div>
+                    <footer class="slds-modal__footer slds-theme_default">
+                        <lightning:button label="Close" onclick="{!c.closeIt}"/>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+    </aura:if>
+    
+    <div class="slds-box">
+        <div class="slds-p-around_none">
+            <div class="slds-form--stacked">
+                
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="CC">Email</label>
+                    <ui:inputEmail aura:id="email" class="field" placeholder="example@email.com" value="{!v.email}"/>
+                </div>
+                
+                
+                <div class="slds-form-element">
+                    <div class="slds-size_2-of-6">
+                        <label class="slds-form-element__label" for="CC">Subject</label> 
+                        <ui:inputText value="{!v.subject}"/>
+                    </div>
+                </div>
+                
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="CC">Body</label> 
+                    
+                    <lightning:inputRichText value="{!v.body}"/>
+                </div> 
+                
+               
+                <lightning:button label="Send" iconName="standard:list_email" onclick="{!c.send}">
+                    
+                    
+                </lightning:button>
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    
+    
+    
+    
+</aura:component>

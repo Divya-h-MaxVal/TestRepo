@@ -1,0 +1,18 @@
+<aura:component>
+    <aura:attribute type="double" name="Principal"/>
+    <aura:attribute type="double" name="Rate"/>
+    <aura:attribute type="double" name="Time"/>
+    <aura:attribute type="currency" name="SI"/>
+    
+        <aura:handler name="change" value="{!v.Principal}" action="{!c.calculate}" />
+        <aura:handler name="change" value="{!v.Rate}" action="{!c.calculate}" />
+        <aura:handler name="change" value="{!v.Time}" action="{!c.calculate}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+        
+    <div>
+    <lightning:input aura:id="Principal" value="{!v.Principal}" label ="Pricipal" placeholder="enter principal amount"/>
+    <lightning:input aura:id="time" value ="{!v.Time}" label="Time" placeholder="enter only in months"/>
+    <lightning:input aura:id="rate" value="{!v.Rate}" label = "Interest Rate" formatter="percent" placeholder="enter the rate"/><br/>
+    Simple Interest is:<ui:outputCurrency value="{!v.SI}"/> 
+    </div>
+  </aura:component>

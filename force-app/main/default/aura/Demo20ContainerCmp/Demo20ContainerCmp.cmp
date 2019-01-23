@@ -1,0 +1,12 @@
+<aura:component >
+	<c:Demo20EmptyContainerCmp>
+        <c:Demo20AppEventNotifier/>
+    </c:Demo20EmptyContainerCmp>
+    
+    <c:Demo20EmptyContainerCmp>
+        <c:Demo20EmptyContainerCmp>
+            <c:Demo20AppEventHandler/>
+        </c:Demo20EmptyContainerCmp>
+    </c:Demo20EmptyContainerCmp>
+    
+</aura:component>

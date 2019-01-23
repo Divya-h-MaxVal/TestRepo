@@ -1,0 +1,16 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction,force:hasSObjectName" access="global" >
+    
+    {!v.recordId}-------{!v.sObjectName}
+	<lightning:recordEditForm recordId="{!v.recordId}" objectApiName="{!v.sObjectName}">
+        <div class="slds-box">
+            <aura:iteration items="Name,Hungry__c,Sleepy__c" var="item">\
+            
+             <lightning:inputField fieldName="{!item}" />
+            
+            </aura:iteration>
+
+        </div>
+        
+        <lightning:button class="slds-m-top_small" type="submit" label="Create new" />
+    </lightning:recordEditForm>
+</aura:component>

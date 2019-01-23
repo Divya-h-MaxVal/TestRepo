@@ -1,0 +1,54 @@
+<aura:component controller="PaginationCmpController">
+    
+    <aura:attribute name="accounts" type="Account[]"/>
+    <aura:attribute name="page" type="integer"/>
+    <aura:attribute name="pages" type="integer"/>
+    <aura:attribute name="total" type="integer"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div class="slds-p-around_none">
+        
+        <div>
+            
+            <lightning:button variant="base" disabled="{!v.page == 1}" 
+                              onclick="{!c.pageNavigation}">Previous</lightning:button>
+            <lightning:button variant="base" disabled="{!v.page == v.pages}" 
+                              onclick="{!c.pageNavigation}">Next</lightning:button>    
+        </div>
+        
+        <div>
+            
+            <lightning:select aura:id="select" name="select" label="No of records to display" 
+                              onchange="{! c.onSelectChange }">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+            </lightning:select>
+            
+        </div>
+        
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Name">Account Name</div>
+                    </th>
+                </tr>            
+            </thead>
+            
+            <tbody>
+                <aura:iteration items="{!v.accounts}" var="a">
+                    <tr>
+                        <th scope="row">
+                            <div class="slds-truncate" title="Name">{!a.Name}</div>
+                        </th>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+            
+        </table>
+        
+    </div>
+    
+</aura:component>

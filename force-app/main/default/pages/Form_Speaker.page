@@ -1,0 +1,27 @@
+<apex:page standardController="Speaker__c" extensions="ControllerExtension">
+    <apex:form >
+    <apex:pageBlock title="Edit Speaker">
+        <apex:pageBlockSection title="cha ching!" columns="1">
+        <apex:inputField value="{!Speaker__c.First_Name__c}" required="true"/>
+        <apex:inputField value="{!Speaker__c.Last_Name__c}"/>
+        <apex:inputField value="{!Speaker__c.Email__c}"/>
+        <apex:inputFile value="{!picture}" accept="image/*" />
+        <apex:inputField value="{!Speaker__c.Bio__c}"/>
+            <apex:pageBlockSectionItem >
+          <apex:outputLabel >Referrer</apex:outputLabel>
+          <apex:inputField value="{!Speaker__c.First_Name__c}" />
+        </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>    
+      
+    <apex:pageBlockButtons >
+        
+        <apex:commandButton action="{!save}" value="save"/>  
+      <!--  <apex:commandButton  action="{!increment}" value="Increment me!"/>-->
+     </apex:pageBlockButtons>
+      {!errorMessage}
+    
+        </apex:pageBlock>
+        
+        </apex:form>
+      
+</apex:page>

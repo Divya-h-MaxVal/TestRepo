@@ -1,0 +1,9 @@
+<aura:component >
+    <ltng:require styles="{!$Resource.StyleResource}" />
+
+<label class="switch">
+    <input type="checkbox"/>
+  <span class="slider"></span>
+</label>
+
+</aura:component>

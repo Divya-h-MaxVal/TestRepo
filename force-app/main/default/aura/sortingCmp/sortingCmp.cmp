@@ -1,0 +1,65 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="SortingCmpCont">
+    <aura:attribute name="conList" type="Contact[]"/>
+    <aura:attribute name="isAsc" type="Boolean" default="true"/>
+    <aura:attribute name="arrowDirection" type="String" default="arrowup"/>
+    <aura:attribute name="selectedTabsoft" type="String" default="firstName"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+        
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+            <tr class="slds-text-title_caps">
+                <th class="slds-is-sortable" scope="col" onclick="{!c.sortFirstName}">
+                    <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                        <span class="slds-assistive-text">Sort</span>
+                        <span class="slds-truncate" title="Name">First Name</span>  
+                        <aura:if isTrue="{! and(v.arrowDirection == 'arrowdown', v.selectedTabsoft == 'firstName') }">&nbsp;  &#9660; </aura:if>  
+                        <aura:if isTrue="{! and(v.arrowDirection != 'arrowdown', v.selectedTabsoft == 'firstName') }"> &nbsp;  &#9650; </aura:if>                     
+                    </a>
+                </th>
+                <th class="slds-is-sortable" scope="col" onclick="{!c.sortLastName}">
+                    <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                        <span class="slds-assistive-text">Sort</span>
+                        <span class="slds-truncate" title="Name">Last Name</span>  
+                        <aura:if isTrue="{! and(v.arrowDirection == 'arrowdown', v.selectedTabsoft == 'lastName') }">&nbsp;  &#9660; </aura:if>  
+                        <aura:if isTrue="{! and(v.arrowDirection != 'arrowdown', v.selectedTabsoft == 'lastName') }"> &nbsp;  &#9650; </aura:if>                     
+                    </a>
+                </th>
+                
+                <th class="slds-is-sortable slds-text-title--caps" scope="col" onclick="{!c.sortDepartment}">
+                    <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                        <span class="slds-assistive-text">Sort</span>
+                        <span class="slds-truncate" title="Department">Department</span>
+                        <aura:if isTrue="{! and(v.arrowDirection == 'arrowdown', v.selectedTabsoft == 'Department') }">&nbsp;  &#9660;</aura:if>
+                        <aura:if isTrue="{! and(v.arrowDirection != 'arrowdown', v.selectedTabsoft == 'Department') }">&nbsp;  &#9650;</aura:if>     
+                    </a>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="MobilePhone">Mobile Phone</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.conList}" var="con">
+        <tr>
+            <th scope="row">
+                <div class="slds-truncate" title="{!con.FirstName}">{!con.FirstName}</div>
+            </th>
+            <th scope="row">
+                <div class="slds-truncate" title="{!con.LastName}">{!con.LastName}</div>
+            </th>
+            <th scope="row">
+                <div>{!con.Department}</div>
+            </th>
+            <th scope="row">
+                <div>{!con.MobilePhone}</div>
+            </th>
+            
+            
+            </tr>
+        </aura:iteration>
+        </tbody>
+    </table>
+    
+    
+    
+</aura:component>

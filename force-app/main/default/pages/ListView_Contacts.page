@@ -1,0 +1,58 @@
+<apex:page standardController="Contact" recordSetVar="contacts" >
+    
+    <apex:form >
+        <apex:pageBlock title="View Contact" id="cont1">
+            
+            Filter:
+            <apex:selectList value="{!filterId}" size="1">
+                <apex:selectOptions value="{! listViewOptions }"/>
+                <apex:actionSupport event="onchange" reRender="cont1"/>
+            </apex:selectList>
+            
+            <apex:pageBlockTable value="{! contacts}" var="c">
+                
+                <apex:column value="{!c.FirstName}" />
+                
+                <apex:column value="{!c.LastName}" />
+                
+                <apex:column value="{!c.Phone}"/>
+              
+            </apex:pageBlockTable>
+            
+            <table style="width: 100%">
+                <tr>
+                    <td >
+                        PAge: <apex:outputText value="{! PageNumber} of {! CEILING(ResultSize/PageSize) }">
+                        </apex:outputText>
+                    </td>
+                    
+                    
+                    <td align="centre">
+                        <apex:commandButton action="{! Previous}"  value="<<Previous" rendered="{! HasPrevious }"/>
+                        
+                        <apex:outputText value="<<Previous" rendered="{! NOT(HasPrevious)}">
+                        </apex:outputText>
+                        
+                        <apex:commandButton action="{! Next}"  value="Next>>" rendered="{! HasNext }"/>
+                        <apex:outputText value="Next>>" rendered="{! NOT(HasNext)}">
+                        </apex:outputText>
+                        
+                        <apex:commandButton action="{! first}" value="first" />
+                        <!-- <apex:outputText value="first" rendered="{! NOT(First)}">
+</apex:outputText> -->
+                    </td>
+                    <td align="right">
+                        Records per page:
+                        <apex:selectList value="{! PageSize }" size="1">
+                            <apex:selectOption itemValue="5" itemLabel="5" 	/>
+                            <apex:selectOption itemValue="25" itemLabel="25"/>
+                            <apex:actionSupport event="onchange" reRender="cont1"/>
+                        </apex:selectList>
+                    </td>
+                 
+                </tr>
+            </table>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,9 @@
+<aura:component controller="TestCustomSettingsController" implements="flexipage:availableForAllPageTypes,lightning:actionOverride,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:appHostable">
+    <aura:attribute name="address" type="String"/>
+    <aura:attribute name="address1" type="String"/>
+    <aura:dependency resource="markup://force:navigateToURL" type="EVENT"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<lightning:button aura:id="buttn" label="Google" title="Google" onclick="{! c.handleClick }"/>
+    <lightning:button aura:id="buttn2" label="YouTube" title="YouTube" onclick="{! c.handleClick2 }"/>
+
+</aura:component>

@@ -1,0 +1,12 @@
+<aura:component controller="MapDemoController">
+    
+    <aura:attribute name="mappy" type="Map"/>
+    <lightning:button label="fetch" onclick="{!c.fetchEm}"/>
+    <aura:iteration items="{!v.mappy}" var="a" indexVar="key">
+    
+    	{!a.key}---{!a.value}
+        
+    </aura:iteration>
+ 
+	
+</aura:component>

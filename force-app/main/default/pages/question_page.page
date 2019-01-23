@@ -1,0 +1,24 @@
+<apex:page standardController="Question_Bank__c" recordSetVar="questions" extensions="SubmitController" >
+   <apex:form > 
+   <apex:pageBlock >
+   <apex:pageMessages />
+   <apex:pageBlockButtons >
+     <!-- <apex:commandButton value="save" action="{!save}"/>-->
+       <apex:commandButton value="submit" action="{!answers}"/>
+         <apex:commandButton value="finalize" action="{!QuickSave}"/>
+   </apex:pageBlockButtons>
+   
+
+   <apex:pageBlockTable value="{!questions}" var="a">
+      <apex:column value="{!a.Question__c}"/>
+       <apex:column headerValue="answer">
+         <apex:inputField value="{!a.Answer__c}"/>
+       </apex:column>
+   
+   </apex:pageBlockTable> 
+      
+   </apex:pageBlock>
+     {!counter}
+       
+   </apex:form>
+</apex:page>

@@ -1,0 +1,4 @@
+<aura:component >
+    <c:welcome />
+	<p>Hello Lightning!!!</p>
+</aura:component>

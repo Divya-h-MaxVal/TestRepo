@@ -1,0 +1,12 @@
+<aura:component >
+    <aura:attribute name="data" type="String" default="Parent Cmp Value"/>
+    <aura:attribute name="dataFromChild" type="String"/>
+    <aura:handler name="childCmpEvent" event="c:Demo24CmpEvt" action="{!c.handleCmpEvt}"/>
+    <p>-----------Parent starts here--------</p>
+   <p> parent input value<ui:inputText value="{!v.data}"/> </p>
+    <p> data from child:  <ui:outputText value="{!v.dataFromChild}"/> </p>
+    
+    <c:Demo24ChildCmp dataFromParent="{!v.data}" aura:id="child" parentAction="{!c.methodCalledFromChild}"/><br/><hr/><hr/>
+    <ui:button label="call child method" press="{!c.callChildMethod}"/>
+    <c:Demo24OtherChild/>
+</aura:component>

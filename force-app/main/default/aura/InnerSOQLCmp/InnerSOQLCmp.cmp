@@ -1,0 +1,22 @@
+<aura:component controller="InnerSOQLController">
+    <aura:attribute name="accountList" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div class="slds-table_edit_container slds-is-relative">
+    <aura:iteration items="{!v.accountList}" var="acc" indexVar="i">
+        
+        
+        {!i+1} Account Name : {!acc.Name}<br/>
+        <aura:iteration items="{!acc.Contacts}" var="cont" indexVar="p">
+            
+        
+        Contacts of this account :{!cont.FirstName} {!cont.LastName}
+        <br/>
+        <br/>
+        <hr/>
+        </aura:iteration>
+        
+        </aura:iteration>
+        
+    </div>
+</aura:component>

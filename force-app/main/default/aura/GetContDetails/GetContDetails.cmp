@@ -1,0 +1,21 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="PhoneNumber" type="String" required="true" default=""/>
+    <aura:attribute name="Address" type="String" default=""/>
+    <aura:attribute name="City" type="String" default=""/>
+    <aura:attribute name="PinCode" type="Integer" default="000"/>
+    <aura:attribute name="ContInnerList" type="List"/>
+    
+    
+    <div class="slds-align_absolute-center" style="height: 5rem;">
+        
+    <lightning:input value="{!v.PhoneNumber}" label="Phone Number"/>
+    <lightning:input value="{!v.Address}" label="Address"/>
+    <lightning:input value="{!v.City}" label="City"/>
+    <lightning:input value="{!v.PinCode}" label="PinCode"/>
+        
+	</div>
+    <br/>
+    <lightning:button label="delete" onclick="{!c.delFunc}"/>
+    
+    
+</aura:component>

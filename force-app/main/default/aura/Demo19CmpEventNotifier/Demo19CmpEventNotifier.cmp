@@ -1,0 +1,8 @@
+<aura:component >
+    <aura:registerEvent name="componentEvent" type="c:Demo19CmpEvent"/>
+    <aura:attribute name="messagestring" type="String" default="Comp event demo"/>
+    <h1>Comp event Notifier</h1>
+    <ui:inputText label="Mesasge" value="{!v.messagestring}">
+    </ui:inputText>
+    <ui:button aura:id="button" label="Fire cmp event" class="button" press="{!c.fireCmpEvt}"/>
+</aura:component>

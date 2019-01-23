@@ -1,0 +1,13 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <ltng:require styles="{!$Resource.staticCss1 + '/css/style.css'}"/> 
+    <div class="switch">
+        <input name="switch" id="one" type="radio" onchange="{!c.firstToggle}"/>
+        <label for="one" class="switch__label">Static</label>
+        <input name="switch" id="two" type="radio" onchange="{!c.secondToggle}"/>
+        <label for="two" class="switch__label" >Dynamic</label>
+        <div class="switch__indicator" />
+    </div> 
+    
+    
+    
+</aura:component>

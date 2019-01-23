@@ -1,0 +1,4 @@
+<design:component>
+        <design:attribute name="format" datasource="apex://MyCustomPickList"/>
+    <design:attribute name="class" label="Select color" datasource="Red,blue,green,black" default="black"/>
+</design:component>

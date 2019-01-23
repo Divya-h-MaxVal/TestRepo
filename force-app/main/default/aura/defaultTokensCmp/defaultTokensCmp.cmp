@@ -1,0 +1,7 @@
+<aura:component >
+	<div class="myClass">
+    
+    <h2>Hi! I'm Mr.Meseeks</h2>
+    
+    </div>
+</aura:component>

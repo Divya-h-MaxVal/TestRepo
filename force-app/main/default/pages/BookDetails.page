@@ -1,0 +1,15 @@
+<apex:page standardController="Book__c" extensions="BookDetailsCustomCont" >
+    <apex:form >
+        <apex:pageBlock >
+            <apex:outputLabel value="enter the name of the book"/>
+            <apex:inputField label="enter"  value="{!Book__c.Name}"/>
+            <br/>
+            <apex:outputLabel value="Please attach your picture"/>
+          <apex:inputFile value="{!picture}" accept="image/*"/> 
+            <apex:commandButton value="Save" action="{!save}" />
+            
+    
+    
+            </apex:pageBlock>
+        </apex:form>
+</apex:page>

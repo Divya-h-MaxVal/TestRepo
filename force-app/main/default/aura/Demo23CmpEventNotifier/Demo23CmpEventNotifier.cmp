@@ -1,0 +1,5 @@
+<aura:component >
+    <aura:registerEvent name="bubblingEvent" type="c:Demo23CmpEvent"/>
+    <ui:button label="Start Bubbling" press="{!c.fireEvent}"/>
+    
+</aura:component>

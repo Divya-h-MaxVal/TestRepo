@@ -1,0 +1,18 @@
+<aura:component >
+    <div class="slds-tabs_default">
+        <ul class="slds-tabs_default__nav" role="tablist">
+            <li aura:id="first" class="slds-tabs_default__item slds-is-active" title="First set" role="presentation">
+                <a class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-default-1" id="tab-default-1__item" onclick="{!c.first}">First set</a>
+            </li>
+            <li aura:id="second" class="slds-tabs_default__item" title="Second Set" role="presentation">
+                <a class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-2" id="tab-default-2__item" onclick="{!c.second}">Second Set</a>
+            </li>
+            <li aura:id="third" class="slds-tabs_default__item" title="Third Set" role="presentation">
+                <a class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-3" id="tab-default-3__item" onclick="{!c.third}">Third Set</a>
+            </li>
+        </ul>
+        <div aura:id="firstTab" id="tab-default-1" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-default-1__item">Apple<br/> Pear<br/> Berry</div>
+        <div aura:id="secondTab" id="tab-default-2" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-2__item">Kiwi<br/> Banana<br/> JackFruit</div>
+        <div aura:id="thirdTab" id="tab-default-3" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-3__item">Mango<br/> melMel<br/> Orange</div>
+    </div>
+</aura:component>

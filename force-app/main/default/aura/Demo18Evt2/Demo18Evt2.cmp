@@ -1,0 +1,14 @@
+<aura:component controller="Demo18Controller" >
+	 <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+    <!-- Other component markup here -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="render" value="{!this}" action="{!c.onRender}"/>
+    <aura:handler event="aura:locationChange" action="{!c.update}"/>
+    
+    <aura:attribute name="data" type="String" default="event demo"/>
+    
+    <lightning:button label="ping server" onclick="{!c.callServer}"/>
+    <lightning:spinner alternativeText="Loading" size="large" aura:id="mySpinner" class="slds-hide"/>
+    {!v.data}
+</aura:component>

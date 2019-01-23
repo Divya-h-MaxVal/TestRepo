@@ -1,0 +1,25 @@
+<apex:page standardController="Account" extensions="VfExController">
+    <apex:form >
+        
+        <apex:pageBlock >
+        
+        <apex:pageBlockSection rendered="{!!editsection}">
+            <apex:commandButton value="edit" action="{!EdittheSection}" />
+                    <apex:outputField value="{!acc.Name}"/>
+                    <apex:outputField value="{!acc.Phone}"/>
+           			<apex:outputField value="{!acc.Type}"/>
+                                
+            </apex:pageBlockSection>
+            <apex:pageBlockSection rendered="{!editsection}">
+            <apex:commandButton value="save" action="{!save}" />
+                    <apex:outputField value="{!acc.Name}"/>
+                    <apex:inputField value="{!acc.phone}"/>
+                <apex:inputField value="{!acc.Type}"/>
+                
+            </apex:pageBlockSection>
+        
+        </apex:pageBlock>
+    
+    
+    </apex:form>
+</apex:page>

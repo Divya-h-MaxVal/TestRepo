@@ -1,0 +1,17 @@
+<aura:component controller="SearchBarController" >
+    <aura:attribute name="page" type="integer"/>
+    <aura:attribute name="total" type="integer"/>
+    <aura:attribute name="pages" type="integer"/>
+    <aura:attribute name="beer" type="Beer__c[]"/>
+    
+    <aura:handler event="aura:locationChange" action="{!c.locationChange}"/>
+    
+    <aura:handler event="c:PageChange" action="{!c.PageChange}"/>
+
+        <c:Paginator page="{!v.page}" pages="{!v.pages}" total="{!v.total}"/>
+	
+    <aura:iteration items="{!v.beer}" var ="b">
+    <c:BeerListItem beer="{!b}"/>
+    </aura:iteration>
+	
+</aura:component>

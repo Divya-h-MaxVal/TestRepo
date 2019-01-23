@@ -1,0 +1,71 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" controller="BookSearchController" >
+    <aura:attribute name="searchKey" type="String"/>
+    <aura:attribute name="message" type="boolean" />
+    <aura:attribute name="totalNoRecords" type="integer" default="0"/>
+    <aura:attribute name="searchResult" type="List"/>
+    
+    <div class="slds-align_absolute-center">
+        
+        
+        <lightning:spinner variant="brand" size="large" class="slds-hide" aura:id="spinner"/>
+        <div class="slds-m-around_medium">
+            <lightning:layout>
+                
+                <div class="slds-box">
+                    <div class="slds-size_8-of-8">
+                        
+                        
+                        <lightning:layoutItem>
+                            <lightning:input value="{!v.searchKey}" label="Book" placeholder="enter the name of the book you want to search"
+                                             required="true"/>
+                        </lightning:layoutItem>
+                    </div>
+                </div>
+                <br/> 
+                
+                <div class="slds-box">
+                    
+                    <lightning:layoutItem>
+                        <lightning:button onclick="{!c.search}" label="Search" iconName="utility:search"/>
+                    </lightning:layoutItem>
+                </div>
+                
+            </lightning:layout>
+        </div>
+        <div>
+            <lightning:badge value="{!v.totalNoRecords}"/>
+            
+        </div>
+    </div>
+    
+    <aura:if isTrue="{!!v.message}">
+    
+        <table>
+        <thead>
+            <tr>
+               <th>Picture</th> 
+                <th>Name of the book</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <aura:iteration items="{!v.searchResult}" var="book">
+                <tr>
+                    <td><img src="{!book.PicturePath__c}" alt="5" border="0"/></td> 
+                    <td>{!book.Name}</td>
+                </tr>
+                
+            </aura:iteration>
+            
+        </tbody>
+        
+    </table>
+        
+    
+   <aura:set attribute="else">
+       <h2>No records found</h2>
+    
+    
+        </aura:set>
+     </aura:if>
+</aura:component>

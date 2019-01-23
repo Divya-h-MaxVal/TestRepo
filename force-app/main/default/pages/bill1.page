@@ -1,0 +1,26 @@
+<apex:page standardController="Things__c" recordSetVar="things" >
+   <apex:form > 
+   <apex:pageBlock >
+   <apex:pageMessages />
+   <apex:pageBlockButtons >
+      <apex:commandButton value="Save" action="{!save}"/>
+   </apex:pageBlockButtons>
+
+   <apex:pageBlockTable value="{!things}" var="a">
+      <apex:column value="{!a.name}"/>
+      <apex:column value="{!a.price__c}"/>
+     
+      <apex:column headerValue="purchase quantity">
+         <apex:inputField value="{!a.p_quantity__c}"/>
+       
+      </apex:column>
+      
+      <apex:column value="{!a.sub_total__c}"/> 
+      
+      
+      
+
+   </apex:pageBlockTable>
+   </apex:pageBlock>
+   </apex:form>
+</apex:page>

@@ -1,0 +1,32 @@
+<aura:component controller="Demo10ApexComponentController">
+    
+    <aura:attribute name="accountList" type="List"/>
+    <aura:attribute name="selectedAccId" type="string"/>
+    <aura:attribute name="contactList" type="List"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <aura:handler name="change" value="{!v.selectedAccId}" action="{!c.getContacts}"/>
+    
+    
+    <aura:iteration items="{!v.accountList}" var ="acc">
+    
+        {!acc.Id} ----{!acc.Name} <br/>
+           
+    </aura:iteration>
+    
+	<lightning:select name="select1" label="Select Account" value="{!v.selectedAccId}">
+        
+        <option value="">none</option>
+        <aura:iteration items="{!v.accountList}" var ="acc">
+        
+            <option value="{!acc.Id}">{!acc.Name}</option>
+        
+        </aura:iteration>
+        
+    </lightning:select>
+    
+    <aura:iteration items="{!v.contactList}" var ="a">
+    
+        {!a.FirstName} <br/>
+    </aura:iteration>
+    
+</aura:component>

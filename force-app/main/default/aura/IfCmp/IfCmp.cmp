@@ -1,0 +1,14 @@
+<aura:component >
+    <aura:attribute name="text" type="String" default="Toggle on"/>
+     <aura:attribute name="check" type="Boolean" default="false"/>
+    <div>
+        <aura:if isTrue="{! !v.check}">
+    <lightning:button label="{!v.text}" onclick="{!c.doThis}"/>
+            <aura:set attribute="else">
+            <lightning:button label="{!v.text}" onclick="{!c.doThis}"/>
+            
+            </aura:set>
+            
+            </aura:if>
+    </div>
+</aura:component>

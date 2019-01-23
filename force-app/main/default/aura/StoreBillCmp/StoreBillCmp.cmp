@@ -1,0 +1,44 @@
+<aura:component controller="StoreBillController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <!-- This is the child component having store instance --> 
+    
+    <aura:attribute name="selectedProdID" type="String" default=""/>
+    <aura:attribute name='storeInstance' Type='Store__c'  default="{ 'sobjectType': 'Store__c',
+                                                                   'ProductNew__c': ' ',
+                                                                   'Quantity_Purchased__c': ' ', 'Name' : ''}"/>
+    <aura:attribute name="rowIndex" type="Integer" default="0"/>    
+    <aura:handler name="init" value="{!this}" action="{!c.loadOptions}"/>
+    <aura:registerEvent name="addRow" type="c:AddRowEvent"/>
+    <aura:registerEvent name="deleteRow" type="c:DeleteRowEvent"/>
+    <tr class="slds-text-title_caps">
+        <td>
+            <ui:outputNumber value="{!v.rowIndex + 1}"/>
+        </td>
+        <td>
+            <lightning:input name="Customer/Bill Name"  value="{!v.storeInstance.Name}" placeholder="Customer Name.."/>
+        </td>
+        
+        <td>
+            <lightning:combobox aura:id="comboBox" name="Products"  value="--Please select here--" 
+                                placeholder="Select Products" options="{! v.storeInstance.ProductNew__c }" onchange="{! c.handleChange }"/>
+        </td>
+        <td>
+            <lightning:input type="double" value="{!v.storeInstance.Quantity_Purchased__c}" min="0"/>
+        </td>
+        <td>
+            
+           <aura:if isTrue="{!v.rowIndex == 0}">
+                <a onclick="{!c.addNewRow}">
+                  <lightning:icon iconName="utility:add" class="slds-icon slds-icon_small" size="small" alternativeText="add"/>
+                  <span class="slds-assistive-text">Add Icon</span>
+                </a>    
+             <aura:set attribute="else">
+                  <a onclick="{!c.removeRow}">
+                   <lightning:icon variant="error" iconName="utility:delete" class="slds-icon slds-icon_small" size="small" alternativeText="icon"/>
+                   <span class="slds-assistive-text">Delete Icon</span>
+                  </a>
+              </aura:set>
+            </aura:if>
+        </td>
+        
+    </tr>
+</aura:component>

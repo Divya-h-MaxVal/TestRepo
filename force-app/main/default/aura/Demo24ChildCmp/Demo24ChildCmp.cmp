@@ -1,0 +1,22 @@
+<aura:component >
+    <aura:attribute name="dataFromParent" type="String" default="Child value"/><hr/>
+    <aura:registerEvent name="childCmpEvent" type="c:Demo24CmpEvt"/>
+      <ui:button label="Pass Data to OtherChild" press="{!c.callAppEvent}"/>
+     <aura:attribute name="childData" type="String" /><hr/>
+    <aura:attribute name="parentAction" type="Aura.Action"/>
+    <aura:method name="childMethod" >
+        <aura:attribute name="param1" type="String"/>
+    </aura:method>
+    
+    <aura:handler name="change" value="{!v.childData}" action="{!c.callCmpEvent}"/>
+    
+    <p>-------Child Starts here-----</p>
+    <p> data from parent input: <ui:inputText value="{!v.dataFromParent}"/> </p>
+    <p> data from parent output: <ui:outputText value="{!v.dataFromParent}"/> </p><hr/>
+    
+     <p> Childdata input: <ui:inputText value="{!v.childData}"/> </p>
+    <p> Childdata output: <ui:outputText value="{!v.childData}"/> </p><hr/>
+    
+    <ui:button label="call parent method" press="{!v.parentAction}"/>
+      <ui:button label="Pass Data to OtherChild" press="{!c.callAppEvent}"/>
+</aura:component>

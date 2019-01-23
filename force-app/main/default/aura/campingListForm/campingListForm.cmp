@@ -1,0 +1,54 @@
+<aura:component controller="CampingListController">
+    <aura:attribute name="items" type="Camping_item__c[]"/>
+    <aura:attribute name="newItem" type="Camping_item__c"
+                        default="{ 'sobjectType' : 'Camping_item__c',
+                                 'Price__c' : 0,
+                                 'Quantity__c' : 0,
+                                 'Name' : '',
+                                 'Packed__c' : false}"/>
+   
+    <aura:registerEvent name="addItem" type="c:addItemEvent"/>
+    
+     <lightning:layout>
+        
+        <lightning:layoutItem padding="around-small" size="6">
+            <fieldset class="slds-box">
+                <legend text="Add camping item"/>
+                <lightning:input aura:id="campItem" label="Name of the item" value="{!v.newItem.Name}" placeholder="Enter in text"/>
+                <lightning:input aura:id="campItem" label="Price" value="{!v.newItem.Price__c}" formatter="currency"/>
+                <lightning:input aura:id="campItem" name="Quantity" label="Quantity" value="{!v.newItem.Quantity__c}" 
+                                 type="number" min="1" messageWhenRangeUnderflow="Enter an amount that's at least .01."  
+                                 required="true" step="1"/>
+                <lightning:input type="checkbox" aura:id="campItem" label="Packed" checked="{!v.newItem.Packed__c}"/>
+            </fieldset>
+            
+        </lightning:layoutItem>
+         </lightning:layout> 
+    <lightning:layout>
+        
+        <lightning:layoutItem padding="around-small" size="6">
+            <lightning:button label="Add to the List" onclick="{!c.clickCreateItem}"/>
+        </lightning:layoutItem>
+            
+        </lightning:layout>
+        
+    
+    
+  
+    
+        
+    <lightning:layout>
+    
+    <lightning:layoutItem>
+        
+        <aura:iteration items="{!v.items}" var="it">
+        
+            <c:campingListItem  item="{!it}"/>
+        </aura:iteration>
+        
+        </lightning:layoutItem>
+    
+    </lightning:layout>
+    
+	
+</aura:component>

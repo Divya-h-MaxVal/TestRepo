@@ -1,0 +1,7 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<div class="slds-size_1-of-2">
+        You entered: <ui:outputText value="hello"/>
+                    <lightning:outputField fieldName="Phone" value="what shit"/>
+
+        </div>
+</aura:component>

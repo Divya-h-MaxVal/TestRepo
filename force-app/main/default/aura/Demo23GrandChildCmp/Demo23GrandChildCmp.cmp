@@ -1,0 +1,7 @@
+<aura:component >
+    <aura:handler name="bubblingEvent" event="c:Demo23CmpEvent" action="{!c.handleBubblingEvent}"/>
+    <aura:handler name="bubblingEvent" event="c:Demo23CmpEvent" action="{!c.handleCaptureEvent}" phase="capture"/>
+    <div>
+        <c:Demo23CmpEventNotifier/>
+    </div>
+</aura:component>

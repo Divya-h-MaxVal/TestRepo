@@ -1,0 +1,19 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute type="String" name="searchKey"/>
+    <aura:handler event="aura:locationChange" action="{!c.locationChange}"/>
+    
+<div class="slds-size_4-of-8">
+     <div class="da">
+        <input type="text"  onkeyup="{!c.searchKeyChange}" value="{!v.searchKey}"
+               placeholder="please input something"  />
+   
+    <lightning:button label="Clear" onclick="{!c.clearThings}" /></div>
+        </div>
+   
+    
+    
+    
+     
+    
+</aura:component>

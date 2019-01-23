@@ -1,0 +1,16 @@
+<aura:component controller="HttpController">
+    <aura:attribute name="response" type="map"/>
+    <aura:attribute name="resList" type="string[]"/>
+    
+    <lightning:button label="Make HTTP call" onclick="{!c.callout}"/>
+    <h3>base:{!v.response.base}</h3>
+    <h3>date:{!v.response.date}</h3>
+    
+    <aura:iteration items="{!v.resList}" var="l">
+    
+    {!l}
+    </aura:iteration>
+
+    
+    
+</aura:component>

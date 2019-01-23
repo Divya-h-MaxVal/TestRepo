@@ -1,0 +1,22 @@
+<apex:page standardController="Account" extensions="TAskAController">
+    <apex:form >
+        <apex:pageBlock title="Main Section">
+         
+            <apex:pageBlockSection title="Read Only Section" rendered="{!!editSection}">
+                <apex:commandButton value="edit" action="{!EdittheSection}" immediate="true"/>
+                    <apex:outputField value="{!Account.Name}"/>
+                    <apex:outputField value="{!Account.Phone}"/>
+            </apex:pageBlockSection>
+    
+            <apex:pageBlockSection rendered="{!editSection}" title="Edit Section">
+                               <apex:outputField value="{!Account.Name}"/> 
+                 <apex:inputField value="{!Account.Phone}"/>
+                 <apex:commandButton value="save" action="{!saveIt}" immediate="true">
+<!--                     <apex:param value="{!Account.Phone}" assignTo="{!phoneIp}"/> -->
+                </apex:commandButton>
+
+                    
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

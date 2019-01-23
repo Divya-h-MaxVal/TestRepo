@@ -1,0 +1,7 @@
+<aura:component >
+    <h2>Custom message Example</h2><hr/>
+    <c:Demo15MsgCmp aura:id="messages"/>
+    <ui:button label="Show Confirmation" press="{!c.showMessage}"/>
+    <ui:button label="Show Error" press="{!c.showErrorMsg}"/>
+    <ui:button label="Remove Message" press="{!c.removeMsg}"/>
+</aura:component>

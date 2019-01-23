@@ -1,0 +1,13 @@
+<aura:component >
+	
+  
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="render" value="{!this}" action="{!c.onRender}"/>
+
+    <div class="slds-box">
+  <p>Child 1</p>
+        <c:Demo16SubChildCmp/>
+</div>
+    
+     
+</aura:component>

@@ -1,0 +1,64 @@
+<aura:component controller="AccountContTiles" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="accounts" type="List"/>
+    <aura:attribute name="show" type="boolean" default="false"/>
+    <aura:attribute name="conList" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div class="slds-float_left">
+        
+        <article class="slds-card">
+            <div class="slds-grid slds-einstein-header slds-card__header">
+                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                    <div class="slds-grid slds-grid_vertical-align-center slds-size_3-of-4 slds-medium-size_2-of-3">
+                        <div class="slds-media__figure">
+                            
+                        </div>
+                        <div class="slds-media__body">
+                            <h2 class="slds-truncate" title="Einstein (10+)">
+                                <a href="javascript:void(0);" class="slds-card__header-link" title="Einstein (10+)">
+                                    <span class="slds-text-heading_small">Accounts</span>
+                                </a>
+                            </h2>
+                        </div>
+                    </div>
+                </header>
+            </div>
+        </article><div class="slds-scrollable_y" style="height: 35rem; width: 15rem;">
+        
+        <aura:iteration items="{!v.accounts}" var="account" indexVar="i">
+            <div class="slds-p-right_xxx-small">
+                <a href="#" data-id="{!account.Name}" class="slds-text-link_reset" onclick="{!c.getContacts}">{!account.Name}</a>
+            </div>
+            <br/>
+        </aura:iteration>
+        </div>
+    </div>
+    
+    <aura:if isTrue = "{!v.show}">
+                <aura:iteration items="{!v.conList}" var="con">
+                    <div class="slds-align_absolute-center">
+                        
+                        <lightning:tile label="{!con.Name}" href="#">
+                            <aura:set attribute="media">
+                                <lightning:icon iconName="standard:groups"/>
+                            </aura:set>
+                            <dl class="slds-dl_horizontal">
+                                <dt class="slds-dl_horizontal__label">
+                                    <p class="slds-truncate" title="Company">Company:</p>
+                                </dt>
+                                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                    <p class="slds-truncate" title="Salesforce">Salesforce</p>
+                                </dd>
+                                <dt class="slds-dl_horizontal__label">
+                                    <p class="slds-truncate" title="Email">Email:</p>
+                                </dt>
+                                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                    <p class="slds-truncate" title="salesforce-ux@salesforce.com">{!con.Email}</p>
+                                </dd>
+                            </dl>
+                        </lightning:tile>
+                         </div>
+                     <br/>
+                     </aura:iteration>
+       
+    </aura:if>
+</aura:component>

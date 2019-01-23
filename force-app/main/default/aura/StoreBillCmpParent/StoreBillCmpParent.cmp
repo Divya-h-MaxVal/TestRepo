@@ -1,0 +1,38 @@
+<aura:component controller="StoreBillController" >
+    <aura:attribute name="storeList" type="Store__c[]"/>
+    <aura:handler name="addRow" event="c:AddRowEvent" action="{!c.addRowAction}"/>
+    <aura:handler name="deleteRow" event="c:DeleteRowEvent" action="{!c.deleteRowAction}"/>	
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="message" type="String"/>
+    
+    <div class="slds-align_absolute-center" >
+        <h1>Mogu - Mogu Store</h1>
+    </div>
+    
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer"> 
+        <thead>
+            <tr class="slds-text-title_caps">
+                <th scope="col">
+                    <div class="slds-truncate">S.No</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="First Name">Customer Name</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Last Name">Product</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Phone">Quantity</div>
+                </th>
+            </tr>
+        </thead>   
+        <tbody>
+            <aura:iteration items="{!v.storeList}" var="item" indexVar="index"> 
+                <c:StoreBillCmp rowIndex="{!index}" storeInstance="{!item}"/>
+            </aura:iteration> 
+        </tbody>
+    </table>
+    <br/>
+    <lightning:button label="Save" title="Neutral action" onclick="{!c.goSave}"/>
+    
+</aura:component>

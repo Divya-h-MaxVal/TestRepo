@@ -1,0 +1,24 @@
+<aura:component controller="SelectListController" >
+    <aura:attribute name="accNames" type="List"/>
+    <aura:attribute name="slectedAcc" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.slectedAcc}" action="{!c.itemsChange}"/>
+               <ui:inputSecret aura:id="pwd" label="Password " class="" value="" maxlength="10" placeholder="Enter upto 10 character" required="false" size="20"/>
+            
+    <div>
+        <lightning:select aura:id="select" name="select" label="Select an account name" value="{!v.slectedAcc}">
+            
+            <option value="">select one</option>
+            <aura:iteration items="{!v.accNames}" var="a">
+                <option value="{!a.Id}">{!a.Name}</option>
+            </aura:iteration>
+            
+
+            
+            
+        </lightning:select>
+        
+      
+    </div>
+    
+</aura:component>

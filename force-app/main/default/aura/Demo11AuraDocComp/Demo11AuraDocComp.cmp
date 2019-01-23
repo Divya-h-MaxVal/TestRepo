@@ -1,0 +1,4 @@
+<aura:component >
+	<p aura:id="text">Aura Documentation example</p>
+    <lightning:button variant ="brand" label="toggle" onclick="{!c.handleClick}"/>
+</aura:component>

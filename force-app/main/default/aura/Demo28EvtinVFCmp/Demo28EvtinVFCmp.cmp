@@ -1,0 +1,9 @@
+<aura:component >
+    <aura:handler event="c:Demo28VFToLCEvt" action="{!c.handleEvent}"/>
+    
+    <p>LC-1 Starts Here</p>
+    <p>Message from VF</p>
+    <ui:outputText aura:id="ltngText" value=""/><br/>
+    
+    <p>LC-1 Ends Here</p>
+</aura:component>

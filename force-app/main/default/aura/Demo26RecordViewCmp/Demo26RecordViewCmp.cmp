@@ -1,0 +1,14 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction,force:hasSObjectName" access="global" >
+    
+    {!v.recordId}-------{!v.sObjectName}
+	<lightning:recordViewForm recordId="{!v.recordId}" objectApiName="{!v.sObjectName}">
+        <div class="slds-box">
+            <aura:iteration items="Name,Hungry__c,Sleepy__c" var="item">\
+            
+             <lightning:outputField fieldName="{!item}" />
+            
+            </aura:iteration>
+           
+        </div>
+    </lightning:recordViewForm>
+</aura:component>

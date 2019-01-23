@@ -1,0 +1,14 @@
+<aura:component >
+    <aura:attribute name="messageFromNotifier" type="String" />
+    <aura:attribute name="eventCount" type="Integer" default="0" />
+    <aura:handler name="componentEvent" event="c:Demo19CmpEvent" action="{!c.handleCmpEvt}"/>
+    <!-- event handler name will be the name you have registered the event with -->
+    
+    <h1>Component event handler</h1>
+    <p>{!v.messageFromNotifier}
+        {!v.eventCount}
+    </p>
+    <hr/>
+    <c:Demo19CmpEventDemo/>
+    
+</aura:component>

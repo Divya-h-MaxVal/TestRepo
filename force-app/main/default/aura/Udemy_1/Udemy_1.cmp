@@ -1,0 +1,59 @@
+<aura:component controller="SaveToDB" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="variable" type="String" default="hello!"/>
+    <aura:attribute name="fruit" type="String" />
+    <aura:attribute name="Color" type="boolean" default="false"/>
+    <aura:attribute name="IceCreamFlavor" type="String[]"/>
+    <aura:attribute name="interested" type="string"/>
+    <aura:attribute name="options" type="list" default="[
+                                                        {'label' : 'Apple' , 'value' : 'Apple'},
+                                                        {'label' : 'Berry', 'value' : 'Berry'}
+                                                        ]"/>
+    <aura:attribute name="slt" type="string" default=""/>
+    <aura:attribute name="helperCheck" type="boolean" default=""/>
+    <aura:attribute name="ContactList" type="list" />
+    <aura:attribute name="Form" type="Form__c" default="{'sobjectType':'Form__c'}"/>
+   
+    <div class="slds-size_3-of-8">
+    
+    <lightning:dualListbox aura:id="Dropdown" name="Select Options"  label="Select Options" 
+                           sourceLabel="Available Options" 
+                           selectedLabel="Selected Options" 
+                           options="{! v.options }"
+                           value="{! v.Form.Fruit_Option__c }"/>
+    <br/>
+    
+    <lightning:input aura:id="checkBox" onchange="{!c.checkBoxFunc}" type="checkbox" value="{!v.interested}" label="are you int?" name="int" />
+    
+    <lightning:select value="{! v.IceCreamFlavor }" label="select the flavor">
+    <option>vanilla</option>
+     <option>Chocolate</option>
+         <option>strawberry</option>
+    </lightning:select>
+    <br/>
+    <br/>
+    
+   <!-- <lightning:radioGroup aura:id="mylist" value="{! v.options }" label="chikchik" options="{! v.options } "/>  -->
+       <lightning:radioGroup aura:id="mygroup"
+        name="FruitBasket"
+        label="Fruit Basket"
+        options="{! v.options }"
+        value="{! v.slt }"
+        required="true" />
+        
+        <br/>
+        <br/>
+        
+        <aura:iteration items="{!v.ContactList}" var="item">
+        <c:GetContDetails ContInnerList="{!v.ContactList}"/>
+        </aura:iteration>
+        <lightning:button iconName="utility:add" label="add contact" onclick="{!c.addCont}"/>
+        
+        
+          
+    <lightning:button label="submit" onclick="{!c.doThis}"/>
+        <aura:if isTrue="{!v.helperCheck}">
+        checkbox value is {!v.helperCheck}
+        </aura:if>
+    </div>
+</aura:component>

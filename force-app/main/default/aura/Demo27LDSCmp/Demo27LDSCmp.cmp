@@ -1,0 +1,49 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="account" type="Object"/>
+    <aura:attribute name="simpleAccount" type="Object"/>
+    <aura:attribute name="accountError" type="String"/>
+    
+    <force:recordData aura:id="accRecordLoader"
+                      recordId="{!v.recordId}"
+                      fields="Name,BillingCity,BillingCountry"
+                      mode="VIEW"
+                      targetRecord="{!v.account}"
+                      targetFields="{!v.simpleAccount}"
+                      targetError="{!v.accountError}" />
+    
+    <aura:attribute name="newContact" type="Object"/>
+    <aura:attribute name="simpleNewContact" type="Object"/>
+    <aura:attribute name="newContactError" type="String"/>
+    
+    <force:recordData aura:id="contactRecordCreator"
+                      layoutType="FULL"
+                      mode="VIEW"
+                      targetRecord="{!v.newContact}"
+                      targetFields="{!v.simpleNewContact}"
+                      targetError="{!v.newContactError}" />
+    <div class="slds-page-header">
+        <div class="slds-media__body">
+            <h1 class="slds-page-header__title slds-truncate slds-align-middle" >{!v.simpleAccount.Name}</h1>
+            <p class="slds-text-body_small slds-line-height_reset">Create New Contact</p>
+        </div>
+    </div>
+    
+    <aura:if isTrue="{! !empty(v.accountError)}">
+        <ui:message title="error" severity="error" closable="true">{!v.accountError}</ui:message>
+    </aura:if>
+    
+    <aura:if isTrue="{! !empty(v.newContactError)}">
+        <ui:message title="error" severity="error" closable="true">{!v.newContactError}</ui:message>
+    </aura:if>
+    
+    <lightning:input name="firstName" label="FirstName:" value="{!v.simpleNewContact.FirstName}" required="true"/>
+    <lightning:input name="lastName" label="LastName:" value="{!v.simpleNewContact.LastName}" required="true"/>
+    <lightning:input name="phone" label="Phone:" type="Phone" 
+                     value="{!v.simpleNewContact.Phone}" required="true" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                     messageWhenPatternMismatch="format is invalid"/>
+    <lightning:input name="email" label="Email:" value="{!v.simpleNewContact.Email}" required="true"/>
+     <lightning:button variant="brand" label="Create Contact" onclick="{!c.createContact}"/>
+ <lightning:button variant="brand" label="Cancel" onclick="{!c.cancel}"/>
+
+</aura:component>

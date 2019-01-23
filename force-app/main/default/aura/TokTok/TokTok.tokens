@@ -1,0 +1,4 @@
+<aura:tokens>
+    <aura:token name="backgroundColor" value="red"/>
+    <aura:token name="font" value="Arial, sans-serif"/>
+</aura:tokens>
